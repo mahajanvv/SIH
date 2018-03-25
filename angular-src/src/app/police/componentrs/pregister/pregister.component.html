@@ -1,0 +1,16 @@
+<app-pnavbar></app-pnavbar>
+<div id="login-box">
+    <div >
+      <h1>Sign up</h1>
+      <form (ngSubmit)="onRegisterSubmit()">
+      <input type="text" name="name" placeholder="Full Name" [(ngModel)]="name" />
+      <input type="text" name="username" placeholder="Username" [(ngModel)]="username" />
+      <input type="text" name="email" placeholder="E-mail" [(ngModel)]="email"/>
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="password"/>
+      
+      <input type="submit" name="signup_submit" value="Sign me up" />
+      </form>
+    </div>
+<div>
+  
+  

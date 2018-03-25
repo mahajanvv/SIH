@@ -1,0 +1,14 @@
+<app-pnavbar></app-pnavbar>
+<mat-card>
+    <form class="example-form" (ngSubmit)="onLoginSubmit()">
+        <mat-form-field class="example-full-width">
+          <input type="text" matInput placeholder="username" name="username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input type="password" matInput placeholder="password" name="password" [(ngModel)]="password">
+        </mat-form-field>
+        <button mat-button type="submit">Log in</button>
+    </form>
+</mat-card>
+
+  

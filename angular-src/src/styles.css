@@ -1,0 +1,10 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body{
+   margin-top:70px;
+ }
+ @media(max-width: 768px){
+   body{
+     margin-top:180px;
+    }
+ }
