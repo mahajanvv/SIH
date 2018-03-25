@@ -2,16 +2,16 @@ var mongoose=require('mongoose');
 var express =require('express');
 var crimeSchema=mongoose.Schema({
     crimetypeID:{
-        type: String,
-        required:true
+        type: String
     },
     policestationID:{
-        type :String,
-        required:true
+        type :String
     },
     address :{
-        type:String,
-        required:true
+        type:String
+    },
+    city_code:{
+        type:String
     },
     title :{
         type:String,
@@ -22,16 +22,44 @@ var crimeSchema=mongoose.Schema({
         required:true
     },
     status :{
-        type:String,
-        required:true
+        type:String
     },
     create_date:{
         type :Date,
         default:Date.now
+    },
+    modify_date:{
+        type :Date,
+        default:null
+    },
+    crime_date:{
+        type :Date
+    },
+    news_url:{
+       type:[String]
     },
     latlong:{
         type :[Number],
         index :'2d'
     }
 });
-const crime=module.exports=mongoose.model('Crime',crimeSchema,'Crime');
+
+const Crime=module.exports=mongoose.model('Crime',crimeSchema,'Crime');
+
+
+module.exports.updateCrime = function(id,crime,options,callback){
+    var quer = {_id:id};
+    var update ={
+        crimetypeID :crime.crimetypeID,
+        policestationID:crime.policestationID,
+        address:crime.address,
+        city_code:crime.city_code,
+        title:crime.title,
+        description:crime.description,
+        status :crime.status,
+        create_date:crime.create_date,
+        modify_date:Date.now,
+        latlong :crime.latlong
+    }
+    Crime.findOneAndUpdate(quer,update,options,callback);
+}

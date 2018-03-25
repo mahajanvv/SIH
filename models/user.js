@@ -16,9 +16,36 @@ const UserSchema = mongoose.Schema ({
     required: true
   },
   password: {
+    type: String,
+    required: true
+  },
+  mobile:{
     type: String
+  },
+  UID:{
+    type: String
+  },
+  address:{
+    type: String
+  },
+  img_url:
+  {
+    type:String
+  },
+  age:{
+    type:String
+  },
+  notify:{
+    type:Boolean,
+    default:false
+  },
+  is_victim:{
+    type:Boolean,
+    default:false
   }
 });
+
+
 
 const User = module.exports = mongoose.model('User', UserSchema);
 
@@ -39,6 +66,10 @@ module.exports.addUser = function(newUser, callback) {
       newUser.save(callback);
     });
   });
+}
+module.exports.findUserIdByEmail = function(useremail, callback) {
+  const query = {email: useremail}
+  User.findOne(query, callback);
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback) {

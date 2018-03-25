@@ -1,46 +1,8 @@
-
-section.home {
-
-    background: radial-gradient(rgba(0, 0, 0, 0.5), #000) repeat scroll 0% 0%, transparent url("https://ocpd-content.azureedge.net/cdn/images/map.jpg") no-repeat scroll 100% 100%;
-
+div{
+    background-color: #ffffff;
 }
-section.home {
-
+#background{
+    background-image:url('background.jpg') no-repeat right top;
     height: 100vh;
-
-}
-section.home {
-
-    padding: 20px 0px;
-    height: 400px;
-
-}
-section.home {
-
-    height: 700px;
-    padding: 20px 0px;
-
-}
-section {
-
-    border-bottom: 1px solid #999;
-    text-align: center;
-    padding: 30px 0px;
-    height: 800px;
-    width: 100%;
-    min-width: 320px;
-
-}
-
-
-
-input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 100%;
+    width: 100vh;
 }

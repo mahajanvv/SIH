@@ -12,7 +12,7 @@ mongoose.connect(config.database, { useMongoClient: true});
 mongoose.connection.on('connected', () => {
   console.log('Connected to Database '+config.database);
 });
-// On Error
+// On Error 
 mongoose.connection.on('error', (err) => {
   console.log('Database error '+err);
 });
@@ -21,7 +21,10 @@ const app = express();
 
 const users = require('./routes/users');
 const police = require('./routes/polices');
+const victim=require('./routes/victims');
+const crimes=require('./routes/crimes');
 
+const rcrimecity=require('./routes/rcrimecity');
 // Port Number
 const port = process.env.PORT || 8080;
 
@@ -41,8 +44,10 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
+app.use('/crime', crimes);
 app.use('/police',police);
-
+app.use('/victim',victim);
+app.use('/city',rcrimecity);
 // Index Route
 app.get('/', (req, res) => {
   res.send('invaild endpoint');

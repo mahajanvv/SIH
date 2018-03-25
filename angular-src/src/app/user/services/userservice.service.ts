@@ -53,6 +53,13 @@ export class UserserviceService {
       .map(res => res.json());
   }
 
+  getCities(){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('city/getcities', {headers: headers})
+      .map(res => res.json());
+  }
+
   getProfile() {
     let headers = new Headers();
     this.loadToken();
