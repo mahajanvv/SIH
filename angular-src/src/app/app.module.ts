@@ -31,6 +31,8 @@ import { PoliceGuard } from '../app/police/guards/police.guard';
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
 
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSelectModule } from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
@@ -98,6 +100,7 @@ export function provideConfig() {
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDp3nysHy3tE0IoyC3zxPH3XVkV17NYJFE'
     ,libraries:["places"]}),
+    AgmSnazzyInfoWindowModule,
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
