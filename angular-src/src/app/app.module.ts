@@ -23,6 +23,7 @@ import { ValidateService } from './user/services/validate.service';
 import { UserserviceService } from './user/services/userservice.service';
 import { PoliceserviceService } from '../app/police/services/policeservice.service';
 import { PolicevalidateService } from '../app/police/services/policevalidate.service';
+import { CommunicationService } from '../app/user/services/communication.service';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './user/guards/auth.guard';
@@ -110,7 +111,8 @@ export function provideConfig() {
     MatSelectModule
   ],
   exports:[],
-  providers: [ValidateService, UserserviceService, PoliceserviceService, 
+  providers: [ValidateService, UserserviceService, PoliceserviceService,
+    CommunicationService, 
     PolicevalidateService, PoliceGuard, AuthGuard, { provide: AuthServiceConfig,
     useFactory: provideConfig
   } ],

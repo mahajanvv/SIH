@@ -5,6 +5,7 @@ import { MapsAPILoader } from '@agm/core';
 import { FormControl } from '@angular/forms';
 import { } from '@types/googlemaps';
 import { Router } from '@angular/router';
+import { CommunicationService } from '../../services/communication.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  
   public cities: any;
   public searchControl: FormControl;
 
@@ -21,9 +22,12 @@ export class HomeComponent implements OnInit {
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private userService:UserserviceService
-   ,private roter:Router) { }
-
+   ,private roter:Router, private comm:CommunicationService) {
+     
+    }
+   
   ngOnInit() {
+   
     this.userService.getCities().subscribe((data)=>{
       this.cities = data;
     });
@@ -52,9 +56,11 @@ export class HomeComponent implements OnInit {
      });
    }
    searchclicked(){
+     this.comm.setData(this.cities);
     this.roter.navigateByUrl('/visual');
    }
    searchbycity(){
+    this.comm.setData(this.cities);
     this.roter.navigateByUrl('/visual');
    }
 }
