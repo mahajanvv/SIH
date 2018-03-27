@@ -12,19 +12,23 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" [routerLink]="['/pdashboard']">Dashboard </a>
+        <a class="nav-link" [routerLink]="['/crimestat']">Dashboard </a>
       </li>
       <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" [routerLink]="['/pprofile']">Profile </a>
+        <a class="nav-link" [routerLink]="['/getcrime']">CRIME RECORDS </a>
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a class="nav-link" [routerLink]="['/addcrime']">ADD CRIME </a>
       </li>
       <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
         <a class="nav-link" [routerLink]="['/plogin']">Login </a>
       </li>
       <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-        <a class="nav-link" [routerLink]="['/pregister']">Register</a>
+        <a class="nav-link" [routerLink]="['/pregister']">Add_Police</a>
       </li>
-      <li class="nav-item" *ngIf="authService.loggedIn()"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
+      <li class="nav-item" *ngIf="authService.loggedIn()"><a class="nav-link" (click)="onLogoutClick()" href="#">LOGOUT</a>
       </li>
     </ul>
   </div>
 </nav>
+  

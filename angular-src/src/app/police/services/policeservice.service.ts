@@ -3,6 +3,9 @@ import { Http, Headers } from '@angular/http';
 import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Complaint } from '../model/crime';
+import { Victim } from '../model/victim';
+
 
 @Injectable()
 export class PoliceserviceService {
@@ -56,5 +59,45 @@ export class PoliceserviceService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+  }
+  addComplaint(complaint:Complaint){
+    return this.http.post('crime/addcrimes',complaint)
+    .map((res)=>res.json());
+  }
+  getCrimes(){
+    return this.http.get('crime/getcrimes')
+    .map((res)=>res.json());
+  }
+  getCrimeById(crimeid){
+    return this.http.get('crime/getcrimeById/'+crimeid)
+    .map((res)=>res.json());
+  }
+  updateCrimes(id,crime){
+    return this.http.put('crime/updatecrime/'+id,crime)
+    .map((res)=>res.json());
+  }
+  getCrimeByPoliceId(crimeid){
+    return this.http.get('crime/getCrimeByPolice/'+crimeid)
+    .map((res)=>res.json());
+  }
+  getusers(){
+    return this.http.get('users/getusers')
+    .map((res)=>res.json());
+  }
+  addvictim(victim:Victim){
+    return this.http.post('victim/addvictim',victim)
+    .map((res)=>res.json());
+  }
+  updateCrimeCount(crimetype,policeid){
+    return this.http.get('stat/updatecrimecount/'+policeid+'/'+crimetype)
+    .map((res)=>res.json());
+  }
+  getCrimeStat(pid){
+    return this.http.get('stat/getcrimecount/'+pid) 
+    .map((res)=>res.json());
+  }
+  addpolicestat(pid){
+    return this.http.post('stat/addpolice',{pid:pid})
+    .map((res)=>res.json());
   }
 }

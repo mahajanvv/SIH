@@ -1,0 +1,23 @@
+
+
+
+<form class="example-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl" name="refUserId" [(ngModel)]="victim.refUserId">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let state of filteredStates | async" [value]="state.username">
+        <span>{{ state.username }}</span> |
+        <span>{{ state.name }}</span> |
+        <small>Email: {{state.email}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"name="policeMsg" [(ngModel)]="victim.policeMsg"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Progress" type="number" name="progress" [(ngModel)]="victim.progress">
+  </mat-form-field>
+
+  <button mat-raised-button value="" type="submit">ADD VICTIM</button>
+  </form>

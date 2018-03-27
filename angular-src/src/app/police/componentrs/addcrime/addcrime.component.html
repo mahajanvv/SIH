@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V13</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<app-pnavbar></app-pnavbar>
+	
+	<div class="container-contact100">
+    
+		<div class="contact100-map" id="google_map" >
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" >
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+            (dragEnd)="dragEnded($event)"></agm-marker>
+				</agm-map>
+				<br>
+				<span class="contact100-form-title">
+						CRIME LOCATION ON MAP
+					</span>&nbsp;&nbsp;&nbsp;
+  		</div>
+  
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" #complaintForm="ngForm" (ngSubmit)="onSubmit()">
+				<span class="contact100-form-title">
+					ADD CRIME BY POLICE
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Title</span>
+					<input class="input100" type="text" name="title" placeholder="Title." [(ngModel)]="complaint.title">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<span class="label-input100">Description</span>
+         <!-- <input class="input100" type="text" name="disc" placeholder="Email addess..."> -->
+          			<textarea class="input100" type="text" name="disc" [(ngModel)]="complaint.description"></textarea>
+					<span class="focus-input100"></span>
+        		</div>
+		
+
+		<div class="wrap-input100">
+		<span class="label-input100">CRIME TYPE</span>
+
+		<select required class="form-control" [(ngModel)]="complaint.crimetypeID"
+          name="crimetypeID">
+            <option value="" disabled selected>
+              select the type of violence
+            </option>
+            <option value="Murder">
+              Murder
+            </option>
+            <option value="Robbery">
+              Robbery
+            </option>
+            <option value="Drugs_Alcohol">
+              Drugs_Alcohol
+            </option>
+            <option value="Domestic_voilence">
+              Domestic_voilence
+            </option>
+            <option value="sex_crimes">
+              sex_crimes
+						</option>
+						<option value="Drink_Drive">
+              Drink_Drive
+						</option>
+						<option value=" vandalism">
+              vandalism
+						</option>
+						<option value="smuggling">
+              smuggling
+						</option>
+						<option value="poaching">
+              poaching
+						</option>
+						
+		  </select>
+		</div>
+
+		<div class="wrap-input100 validate-input">
+			<span class="label-input100">Crime Date</span>
+		 <!-- <input class="input100" type="text" name="disc" placeholder="Email addess..."> -->
+		 <input class="input100" type="date" name="crimedate" [(ngModel)]="complaint.crime_date">
+		 <span class="focus-input100"></span>
+				</div>
+
+
+		
+        <div class="wrap-input100">
+        <span class="label-input100">City</span>
+        <input class="form-control" placeholder="search for crime location" type="text" #search [formControl]="searchControl">
+		 </div>
+		 
+		 <div class="wrap-input100">
+			<label for="sel1" class="label-input100">Select City</label>
+			<select class="form-control" name="city_code" [(ngModel)]="complaint.city_code">
+			  <option value="pune">pune</option>
+			  <option value="sangli">sangli</option>
+			  <option value="mumbai">mumbai</option>
+			  <option value="kolhapur">kolhapur</option>
+			</select> 
+		  </div>
+        
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" type="submit">
+							Send
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

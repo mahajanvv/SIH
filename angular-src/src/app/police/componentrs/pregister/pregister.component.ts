@@ -16,7 +16,7 @@ export class PregisterComponent implements OnInit {
   password: String;
 
   constructor(private validateService: PolicevalidateService,
-    private authService: PoliceserviceService,
+    private authService: PoliceserviceService,private policeservice:PoliceserviceService,
     private router: Router,
     private flashMessage: FlashMessagesService) { }
 
@@ -43,14 +43,21 @@ export class PregisterComponent implements OnInit {
       return false;
     }
 
+    
+
     // Register user
     this.authService.registerUser(user).subscribe(data => {
     if(data.success) {
-      this.flashMessage.show('You are now registered and can now login', {cssClass: 'alert-success', timeout: 3000});
-      this.router.navigate(['/login']);
+      console.log(data.userid);
+      this.authService.addpolicestat(data.userid).subscribe(data => {
+              console.log("police stat added");
+      });  
+
+      this.flashMessage.show('Police station registered and can now login', {cssClass: 'alert-success', timeout: 3000});
+      this.router.navigate(['/plogin']);
     } else {
       this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
-      this.router.navigate(['/register']);
+      this.router.navigate(['/pregister']);
     }
   });
   }

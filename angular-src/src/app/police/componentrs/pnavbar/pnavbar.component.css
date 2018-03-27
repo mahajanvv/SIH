@@ -1,0 +1,16 @@
+.nav
+{
+    background-color:black;
+}
+
+.nav-link
+{
+    color:white;
+}
+
+.nav-item:hover
+{
+    background-color:white;
+    color:black;
+    display:block;
+}

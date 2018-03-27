@@ -8,17 +8,20 @@ const victim=require('../models/victim');
 
 router.post('/addvictim',(req,res,next)=>
 {
-    var useremail=req.email;
-    var crimeId=req.crimeId;
-    var policeId=req.policeId;
-    var userid;
-    User.findUserIdByEmail(useremail,function(err,user1){
-        userid=user1._id;
-    });
+    var username=req.body.refUserId;
+    var crimeId=req.body.refCrimeId;
+    var policeId=req.body.refPoliceId;
+    User.getUserByUsername(username,function(err,user1){
+        console.log(username);
+        console.log(user1);
+        var userid=user1._id;
+   
    let newVictim=new victim({
        refPoliceId:policeId,
        refUserId:userid,
-       refCrimeId:crimeId
+       refCrimeId:crimeId,
+       policeMsg:req.body.policeMsg,
+       progress:req.body.progress
     });
     newVictim.save((err,victimdata)=>{
         if(err)
@@ -31,6 +34,8 @@ router.post('/addvictim',(req,res,next)=>
         console.log(victimdata);
     }
     });
+
+});
 });
 
 

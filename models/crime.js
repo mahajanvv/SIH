@@ -5,7 +5,8 @@ var crimeSchema=mongoose.Schema({
         type: String
     },
     policestationID:{
-        type :String
+        type :String,
+        required:true
     },
     address :{
         type:String
@@ -22,7 +23,8 @@ var crimeSchema=mongoose.Schema({
         required:true
     },
     status :{
-        type:String
+        type:Boolean,
+        default:false
     },
     create_date:{
         type :Date,
@@ -47,7 +49,7 @@ var crimeSchema=mongoose.Schema({
 const Crime=module.exports=mongoose.model('Crime',crimeSchema,'Crime');
 
 
-module.exports.updateCrime = function(id,crime,options,callback){
+module.exports.updateCrime = function(id,crime,callback){
     var quer = {_id:id};
     var update ={
         crimetypeID :crime.crimetypeID,
@@ -61,5 +63,6 @@ module.exports.updateCrime = function(id,crime,options,callback){
         modify_date:Date.now,
         latlong :crime.latlong
     }
-    Crime.findOneAndUpdate(quer,update,options,callback);
+    
+    Crime.findOneAndUpdate(quer,update,callback);
 }

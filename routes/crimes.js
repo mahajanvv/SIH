@@ -25,7 +25,9 @@ router.post('/addcrimes',(req,res,next)=>
         }
         else{
             var city_code1=ct.city_code;
+            console.log("1"+ct);
 
+    
 
    let newCrime=new crime({
         crimetypeID :req.body.crimetypeID,
@@ -61,12 +63,12 @@ router.post('/addcrimes',(req,res,next)=>
 router.put('/updatecrime/:_id',function(req,res){
     var id = req.params._id;
     var crime1 = req.body;
-    crime.updateCrime(id,crime1,{},function(err,crime2){
+    crime.updateCrime(id,crime1,function(err,crime2){
         if(err){
             res.json(err);
         }
         res.json(crime2);
-        console.log(crime2);
+        console.log("0"+crime2);
     });
 });
 
@@ -203,7 +205,8 @@ router.get('/getCrimeById/:cid',function(req,res){
     crime.find({_id: req.params.cid},function(err,crimes)
     {
             res.json(crimes);
-            console.log("Hello" );
+            console.log(crimes );
+
             if(err)
                 console.log("error");
     });

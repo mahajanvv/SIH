@@ -23,6 +23,7 @@ const users = require('./routes/users');
 const police = require('./routes/polices');
 const victim=require('./routes/victims');
 const crimes=require('./routes/crimes');
+const stats=require('./routes/statisticss');
 
 const rcrimecity=require('./routes/rcrimecity');
 // Port Number
@@ -48,6 +49,8 @@ app.use('/crime', crimes);
 app.use('/police',police);
 app.use('/victim',victim);
 app.use('/city',rcrimecity);
+app.use('/stat',stats);
+
 // Index Route
 app.get('/', (req, res) => {
   res.send('invaild endpoint');

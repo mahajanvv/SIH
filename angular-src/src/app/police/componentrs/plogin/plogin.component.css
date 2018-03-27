@@ -8,3 +8,13 @@
     width: 100%;
   }
   
+  body {
+
+    background: radial-gradient(rgba(0, 0, 0, 0.5), #000) repeat scroll 0% 0%, transparent url("https://ocpd-content.azureedge.net/cdn/images/map.jpg") no-repeat scroll 100% 100%;
+
+}
+
+.container-login100{
+  background: radial-gradient(rgba(0, 0, 0, 0.5), #000) repeat scroll 0% 0%, transparent url("https://ocpd-content.azureedge.net/cdn/images/map.jpg") no-repeat scroll 100% 100%;
+
+}

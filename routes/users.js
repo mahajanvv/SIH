@@ -62,4 +62,16 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
   res.json({user: req.user});
 });
 
+router.get('/getusers',(req,res,next)=>
+    {
+        User.find(function(err,users)
+        {
+            res.json(users);
+            console.log("Hello" );
+            if(err)
+                console.log("error");
+        })
+    
+    });
+
 module.exports = router;

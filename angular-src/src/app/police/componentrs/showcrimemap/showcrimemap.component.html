@@ -1,0 +1,20 @@
+<app-pnavbar></app-pnavbar>
+<br>
+<h1>CRIME DATA ON MAP</h1>
+<br>
+<agm-map>
+  <agm-marker-cluster imagePath="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m">
+  <agm-marker 
+    *ngFor="let m of complaint; let i=index"
+    [latitude]="m.latlong[0]" 
+    [longitude]="m.latlong[1]"
+  >
+    <agm-info-window 
+      [latitude]="m.lat" 
+      [longitude]="m.lng">
+      <h2 class="head">{{m.title}}</h2>
+      <p>{{ m.description }}</p>
+    </agm-info-window>
+  </agm-marker>
+</agm-marker-cluster>  
+</agm-map>
