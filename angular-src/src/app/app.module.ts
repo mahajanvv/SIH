@@ -18,7 +18,14 @@ import {PloginComponent} from '../app/police/componentrs/plogin/plogin.component
 import {PnavbarComponent} from '../app/police/componentrs/pnavbar/pnavbar.component';
 import {PprofileComponent} from '../app/police/componentrs/pprofile/pprofile.component';
 import {PregisterComponent} from '../app/police/componentrs/pregister/pregister.component';
+import { AddcrimeComponent } from '../app/police/componentrs/addcrime/addcrime.component';
+import { AddvictimComponent } from '../app/police/componentrs/addvictim/addvictim.component';
+import { CrimestatComponent } from '../app/police/componentrs/crimestat/crimestat.component';
+import { GetcrimeComponent } from '../app/police/componentrs/getcrime/getcrime.component';
+import { ShowcrimemapComponent } from '../app/police/componentrs/showcrimemap/showcrimemap.component';
+import { UpdatecrimeComponent } from '../app/police/componentrs/updatecrime/updatecrime.component';
 
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { ValidateService } from './user/services/validate.service';
 import { UserserviceService } from './user/services/userservice.service';
 import { PoliceserviceService } from '../app/police/services/policeservice.service';
@@ -88,7 +95,13 @@ export function provideConfig() {
     PhomeComponent,
     PnavbarComponent,
     PprofileComponent,
-    VisualComponent
+    VisualComponent,
+    AddcrimeComponent,
+    AddvictimComponent,
+    UpdatecrimeComponent,
+    GetcrimeComponent,
+    CrimestatComponent,
+    ShowcrimemapComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +123,8 @@ export function provideConfig() {
     MatMenuModule,
     MatIconModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    Ng2GoogleChartsModule
   ],
   exports:[],
   providers: [ValidateService, UserserviceService, PoliceserviceService,ClusterManager,
