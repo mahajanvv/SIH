@@ -60,7 +60,14 @@ const appRoutes: Routes =  [
   {path:'pregister', component: PregisterComponent},
   {path:'plogin', component: PloginComponent},
   {path:'pdashboard', component: PdashboardComponent, canActivate:[PoliceGuard]},
-  {path:'pprofile', component: PprofileComponent, canActivate:[PoliceGuard]}
+  {path:'pprofile', component: PprofileComponent, canActivate:[PoliceGuard]},
+  {path:'addcrime', component: AddcrimeComponent, canActivate:[PoliceGuard]},
+  {path:'getcrime', component: GetcrimeComponent, canActivate:[PoliceGuard]},
+  {path:'updatecrime', component: UpdatecrimeComponent, canActivate:[PoliceGuard]},
+  {path:'showcrimemap', component: ShowcrimemapComponent, canActivate:[PoliceGuard]},
+  {path:'addvictim', component: AddvictimComponent, canActivate:[PoliceGuard]},
+  {path:'crimestat', component: CrimestatComponent, canActivate:[PoliceGuard]}
+
 ]
 
 
