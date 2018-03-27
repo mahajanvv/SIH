@@ -43,7 +43,7 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { AgmJsMarkerClustererModule, ClusterManager } from '@agm/js-marker-clusterer';
 
 
-import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSelectModule, MatAutocompleteModule } from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import { VisualComponent } from './user/components/visual/visual.component';
 
@@ -121,6 +121,7 @@ export function provideConfig() {
     MatToolbarModule,
     MatCardModule,
     MatMenuModule,
+    MatAutocompleteModule,
     MatIconModule,
     MatInputModule,
     MatSelectModule,
