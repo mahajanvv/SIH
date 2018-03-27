@@ -1,4 +1,12 @@
 <app-navbar></app-navbar>
-<agm-map>
-
+<agm-map [latitude]="22.719569" [longitude]="75.857726">
+    <agm-marker-cluster imagePath="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m">
+            <agm-marker [latitude]="22.719569" [longitude]="75.857726"></agm-marker>
+            <agm-marker [latitude]="22.819569" [longitude]="75.357726"></agm-marker>
+            <agm-marker [latitude]="22.919569" [longitude]="75.457726"></agm-marker>
+            <agm-marker [latitude]="22.119569" [longitude]="75.557726"></agm-marker>
+            <agm-marker [latitude]="22.219569" [longitude]="75.657726"></agm-marker>
+            <agm-marker [latitude]="22.419569" [longitude]="75.757726"></agm-marker>
+            <agm-marker [latitude]="22.519569" [longitude]="75.957726"></agm-marker>
+    </agm-marker-cluster>
 </agm-map>

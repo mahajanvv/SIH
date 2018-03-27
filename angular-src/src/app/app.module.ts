@@ -33,6 +33,7 @@ import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angular4-social-login";
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { AgmJsMarkerClustererModule, ClusterManager } from '@agm/js-marker-clusterer';
 
 
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSelectModule } from '@angular/material';
@@ -102,6 +103,7 @@ export function provideConfig() {
       apiKey: 'AIzaSyDp3nysHy3tE0IoyC3zxPH3XVkV17NYJFE'
     ,libraries:["places"]}),
     AgmSnazzyInfoWindowModule,
+    AgmJsMarkerClustererModule,
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
@@ -111,7 +113,7 @@ export function provideConfig() {
     MatSelectModule
   ],
   exports:[],
-  providers: [ValidateService, UserserviceService, PoliceserviceService,
+  providers: [ValidateService, UserserviceService, PoliceserviceService,ClusterManager,
     CommunicationService, 
     PolicevalidateService, PoliceGuard, AuthGuard, { provide: AuthServiceConfig,
     useFactory: provideConfig

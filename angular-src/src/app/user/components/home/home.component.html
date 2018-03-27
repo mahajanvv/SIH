@@ -1,23 +1,51 @@
 <app-navbar></app-navbar>
-<div id="background" >
-    <div>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Search by places" class="form-control" #search [formControl]="searchControl" type="text">
-            </mat-form-field>
-        </form>
-        <button mat-button (click)="searchclicked()">GO</button>
-    </div>
-    <div>
-        <mat-form-field>
-            <mat-select placeholder="Search by Cities">
-              <mat-option *ngFor="let city of cities" [value]="city.city_code">
-                {{ city.city_name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <button mat-button (click)="searchbycity()">GO</button>
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+            <div class="col-md-12">
+            <p class="a">Start Your Search by Using Either Method Below.</p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+    
+                
+ 
+<div class="container-fluid">
+  <div class="col-md-12">
+       <div class="row">
+        <div class="col-md-6">
+                <font color="white"><h3 class="new2">Near A Location</h3></font>
+                <br>
+                <div class="form-group">
+                <form>
+                        <input id="fname" placeholder="Search By City" type="text" class="form-control" #search [formControl]="searchControl">
+                </form>
+                 </div>
+            <button class="button new" (click)="searchclicked()"><font color="white">GO</font></button>
+        
+        </div>
 
+             <div class="col-md-6">
+                 <br>
+                <font color="white"><h3 class="new3">Near A Location</h3></font>
+                
+                <form>
+                        <div class="form-group loc">
+                        <select class="form-control">
+                                <option *ngFor="let city of cities">
+                                        {{ city.city_name }}
+                                </option>
+                        </select>        
+                        </div>
+                </form>        
+            <button class="button new" (click)="searchbycity()"><font color="white">GO</font></button>
+        
+             </div>
+</div>       
 </div>
-
+</div>
