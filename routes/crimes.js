@@ -51,7 +51,7 @@ router.post('/addcrimes',(req,res,next)=>
                 //res.json(crime);
             }
         else{
-        res.json({msg:'Success!!'});
+        res.json({'msg':'Success!!'});
         //console.log(crime);
     }
     });
